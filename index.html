@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+     <link rel="stylesheet" href="tts.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-microphone-alt"></i> Text to Speech Converter</h1>
+            <p>Explore The Real World</p>
+        </div>
+        
+        <div class="browser-warning" id="browserWarning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Your browser has limited speech synthesis support. Using enhanced compatibility mode.</span>
+        </div>
+        
+        <div class="text-area-container">
+            <textarea class="text-area" id="textArea" placeholder="Enter text to convert to speech...">Hello! Welcome to our universal text to speech converter. This tool can convert any text into natural sounding speech in any language. Try it out by typing your own text!</textarea>
+            <div class="char-count"><span id="charCount">0</span> characters</div>
+        </div>
+        
+        <select class="language-select" id="languageSelect">
+            <option value="auto">Auto-Detect Language</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="it">Italian</option>
+            <option value="pt">Portuguese</option>
+            <option value="ru">Russian</option>
+            <option value="ja">Japanese</option>
+            <option value="zh">Chinese</option>
+            <option value="ar">Arabic</option>
+            <option value="hi">Hindi</option>
+        </select>
+        
+        <div class="controls">
+            <h3><i class="fas fa-voicemail"></i> Select Voice Type</h3>
+            <div class="voice-selection">
+                <div class="voice-option selected" data-voice="UK English Male" data-intro="Hello, I'm a British male voice. It's a pleasure to speak with you.">
+                    <i class="fas fa-male voice-icon"></i>
+                    <span class="voice-name">British Male</span>
+                    <span class="voice-gender">Male</span>
+                </div>
+                <div class="voice-option" data-voice="UK English Female" data-intro="Hello, I'm a British female voice. How may I assist you today?">
+                    <i class="fas fa-female voice-icon"></i>
+                    <span class="voice-name">British Female</span>
+                    <span class="voice-gender">Female</span>
+                </div>
+                <div class="voice-option" data-voice="US English Male" data-intro="Hey there, I'm an American male voice. What can I read for you today?">
+                    <i class="fas fa-male voice-icon"></i>
+                    <span class="voice-name">American Male</span>
+                    <span class="voice-gender">Male</span>
+                </div>
+                <div class="voice-option" data-voice="US English Female" data-intro="Hi, I'm an American female voice. I'm happy to help with your text to speech needs.">
+                    <i class="fas fa-female voice-icon"></i>
+                    <span class="voice-name">American Female</span>
+                    <span class="voice-gender">Female</span>
+                </div>
+                <div class="voice-option" data-voice="Australian Male" data-intro="G'day, I'm an Australian male voice. Ready to convert your text to speech.">
+                    <i class="fas fa-male voice-icon"></i>
+                    <span class="voice-name">Australian Male</span>
+                    <span class="voice-gender">Male</span>
+                </div>
+                <div class="voice-option" data-voice="Australian Female" data-intro="Hello, I'm an Australian female voice. Let me bring your text to life.">
+                    <i class="fas fa-female voice-icon"></i>
+                    <span class="voice-name">Australian Female</span>
+                    <span class="voice-gender">Female</span>
+                </div>
+            </div>
+            
+            <div class="settings">
+                <div class="setting-row">
+                    <span class="setting-label"><i class="fas fa-tachometer-alt"></i> Speed:</span>
+                    <input type="range" min="0.5" max="2" step="0.1" value="1" class="slider" id="rateSlider">
+                    <span class="value-display" id="rateValue">1.0</span>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label"><i class="fas fa-volume-up"></i> Volume:</span>
+                    <input type="range" min="0" max="1" step="0.1" value="1" class="slider" id="volumeSlider">
+                    <span class="value-display" id="volumeValue">100%</span>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label"><i class="fas fa-signal"></i> Pitch:</span>
+                    <input type="range" min="0.5" max="2" step="0.1" value="1" class="slider" id="pitchSlider">
+                    <span class="value-display" id="pitchValue">1.0</span>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="btn btn-primary" id="speakBtn"><i class="fas fa-play"></i> Speak</button>
+               
+                <button class="btn btn-warning" id="pauseBtn"><i class="fas fa-pause"></i> Pause</button>
+                <button class="btn btn-danger" id="stopBtn"><i class="fas fa-stop"></i> Stop</button>
+            </div>
+        </div>
+        
+        <div class="status" id="status">
+            <i class="fas fa-info-circle"></i> Enter text and select a voice to begin.
+        </div>
+        
+        <div class="footer">
+            <p>Text to Speech Converter | By Hariom Sah</p>
+        </div>
+    </div>
+
+
+    
+     <script src="tts.js"></script>
+</body>
+</html>
